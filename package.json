@@ -1,0 +1,16 @@
+{
+  "name": "project_8",
+  "version": "1.0.0",
+  "description": "Treehouse Project 8 - Use an API to Create an Employee Directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-build": "node-sass scss/style.scss css/style.css",
+    "sass": "node-sass -w scss/style.scss css/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
