@@ -336,6 +336,11 @@ body {
     margin: 0 15px; }
   @media (min-width: 768px) {
     body .grid-container {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+      margin: 0 30px; } }
+  @media (min-width: 1050px) {
+    body .grid-container {
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 30px;
       margin: 0 30px; } }
@@ -368,13 +373,20 @@ h1 {
   border: 1px solid #dfdfdf;
   border-radius: 5px;
   margin-bottom: 10px;
-  padding: 10px; }
+  padding: 10px;
+  justify-content: center;
+  align-items: center; }
   .card img {
-    padding: 10px; }
+    padding: 10px 10px 10px 0; }
+  .card .text-container {
+    line-height: 0.3cm; }
 
 /****************************************
 *************Modal Window****************
 ****************************************/
+.hidden {
+  display: none; }
+
 .modal {
   width: 375px;
   margin: 15% auto auto;
@@ -388,4 +400,12 @@ h1 {
     position: absolute;
     right: 15px;
     top: 5px;
-    cursor: pointer; }
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    font-family: "Nunito", Arial, Helvetica, sans-serif; }
+  .modal .text-container hr {
+    border: 1px solid #dfdfdf;
+    background-color: #dfdfdf;
+    border-radius: 5px;
+    width: 60%; }
