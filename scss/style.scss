@@ -14,7 +14,6 @@ $border: 1px solid #dfdfdf;
 *****************Global******************
 ****************************************/
 img {
-  max-width: 100%;
   border-radius: 50%;
 }
 
@@ -37,16 +36,12 @@ body {
     grid-template-columns: auto;
     justify-content: center;
     margin: 0 15px;
-  }
-  @media (min-width: 768px) {
-    .grid-container {
+    @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
       grid-gap: 30px;
       margin: 0 30px;
     }
-  }
-  @media (min-width: 1050px) {
-    .grid-container {
+    @media (min-width: 1050px) {
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 30px;
       margin: 0 30px;
@@ -88,10 +83,13 @@ h1 {
   justify-content: center;
   align-items: center;
   img {
-    padding: 10px 10px 10px 0;
+    margin: 10px 10px 10px 0;
   }
   .text-container {
     line-height: 0.3cm;
+    p {
+      font-size: 0.8rem;
+    }
   }
 }
 /****************************************
@@ -102,7 +100,7 @@ h1 {
 }
 
 .modal {
-  width: 375px;
+  width: 200px;
   margin: 15% auto auto;
   position: relative;
   text-align: center;
@@ -110,6 +108,9 @@ h1 {
   border: $border;
   border-radius: 5px;
   padding: 30px 20px;
+  @media (min-width: 768px) {
+    width: 375px;
+  }
   .modal-close {
     position: absolute;
     right: 15px;
@@ -119,12 +120,22 @@ h1 {
     background-color: white;
     font-family: "Nunito", Arial, Helvetica, sans-serif;
   }
-  .text-container {
-    hr {
-      border: $border;
-      background-color: #dfdfdf;
-      border-radius: 5px;
-      width: 60%;
+  .modal-content {
+    h2,
+    p {
+      font-size: 0.6rem;
+      @media (min-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    .text-container {
+      hr {
+        border: $border;
+        background-color: #dfdfdf;
+        border-radius: 5px;
+        width: 60%;
+      }
     }
   }
 }

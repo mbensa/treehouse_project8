@@ -313,7 +313,6 @@ template {
 *****************Global******************
 ****************************************/
 img {
-  max-width: 100%;
   border-radius: 50%; }
 
 h1,
@@ -334,16 +333,16 @@ body {
     grid-template-columns: auto;
     justify-content: center;
     margin: 0 15px; }
-  @media (min-width: 768px) {
-    body .grid-container {
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 30px;
-      margin: 0 30px; } }
-  @media (min-width: 1050px) {
-    body .grid-container {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 30px;
-      margin: 0 30px; } }
+    @media (min-width: 768px) {
+      body .grid-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+        margin: 0 30px; } }
+    @media (min-width: 1050px) {
+      body .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+        margin: 0 30px; } }
   body .overlay {
     position: absolute;
     top: 0;
@@ -377,9 +376,11 @@ h1 {
   justify-content: center;
   align-items: center; }
   .card img {
-    padding: 10px 10px 10px 0; }
+    margin: 10px 10px 10px 0; }
   .card .text-container {
     line-height: 0.3cm; }
+    .card .text-container p {
+      font-size: 0.8rem; }
 
 /****************************************
 *************Modal Window****************
@@ -388,7 +389,7 @@ h1 {
   display: none; }
 
 .modal {
-  width: 375px;
+  width: 200px;
   margin: 15% auto auto;
   position: relative;
   text-align: center;
@@ -396,6 +397,9 @@ h1 {
   border: 1px solid #dfdfdf;
   border-radius: 5px;
   padding: 30px 20px; }
+  @media (min-width: 768px) {
+    .modal {
+      width: 375px; } }
   .modal .modal-close {
     position: absolute;
     right: 15px;
@@ -404,7 +408,14 @@ h1 {
     border: none;
     background-color: white;
     font-family: "Nunito", Arial, Helvetica, sans-serif; }
-  .modal .text-container hr {
+  .modal .modal-content h2,
+  .modal .modal-content p {
+    font-size: 0.6rem; }
+    @media (min-width: 768px) {
+      .modal .modal-content h2,
+      .modal .modal-content p {
+        font-size: 1rem; } }
+  .modal .modal-content .text-container hr {
     border: 1px solid #dfdfdf;
     background-color: #dfdfdf;
     border-radius: 5px;
