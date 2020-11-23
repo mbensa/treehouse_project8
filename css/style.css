@@ -354,15 +354,22 @@ body {
 /****************************************
 *****************Header******************
 ****************************************/
-h1 {
+header h1 {
   padding: 10px 15px;
   text-align: center;
   font-size: 1.2rem; }
   @media (min-width: 768px) {
-    h1 {
+    header h1 {
       text-align: left;
       padding: 10px 30px;
       font-size: 1.4rem; } }
+
+header h2 {
+  padding: 0 30px;
+  text-align: center; }
+  @media (min-width: 768px) {
+    header h2 {
+      text-align: left; } }
 
 /****************************************
 *****************Card*******************
@@ -374,7 +381,8 @@ h1 {
   margin-bottom: 10px;
   padding: 10px;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  cursor: pointer; }
   .card img {
     margin: 10px 10px 10px 0; }
   .card .text-container {
@@ -420,3 +428,12 @@ h1 {
     background-color: #dfdfdf;
     border-radius: 5px;
     width: 60%; }
+  .modal .modal-content .fas {
+    position: absolute;
+    color: #999c9f;
+    top: 48%;
+    cursor: pointer; }
+    .modal .modal-content .fas.fa-angle-right {
+      right: 20px; }
+    .modal .modal-content .fas.fa-angle-left {
+      left: 20px; }

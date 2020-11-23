@@ -7,6 +7,7 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
+const sort = document.querySelector(".sort");
 
 /*******************************
  ******Fetch data from API*******
@@ -22,7 +23,7 @@ fetch(urlAPI)
  ********************************/
 function displayEmployees(employeeData) {
   employees = employeeData;
-  // store the employee HTML as we create it
+  // store the employee HTML as it is created
   let employeeHTML = "";
 
   // loop through each employee and create HTML markup
@@ -47,7 +48,6 @@ function displayEmployees(employeeData) {
 }
 
 function displayModal(index) {
-  // use object destructuring make our template literal cleaner
   let {
     name,
     dob,
@@ -57,20 +57,48 @@ function displayModal(index) {
     picture,
   } = employees[index];
   let date = new Date(dob.date);
+
   const modalHTML = `
     <img class="avatar" src="${picture.large}" />
+    <i class="fas fa-angle-right fa-2x"></i>
+    <i class="fas fa-angle-left fa-2x"></i>
     <div class="text-container">
       <h2 class="name">${name.first} ${name.last}</h2>
       <p class="email">${email}</p>
       <p class="address">${city}</p>
       <hr />
       <p>${phone}</p>
-      <p class="address">${street}, ${state} ${postcode}</p>
+      <p class="address">${street.number} ${
+    street.name
+  }, ${state} ${postcode}</p>
       <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
   `;
+
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
+
+  // Hide or show arrow icon on first or last card
+  const rightArrow = document.querySelector(".fa-angle-right");
+  const leftArrow = document.querySelector(".fa-angle-left");
+
+  if (index === 11) {
+    rightArrow.style.display = "none";
+  } else if (index === 0) {
+    leftArrow.style.display = "none";
+  }
+
+  //add event listener to move back and forth between employee data
+  rightArrow.addEventListener("click", () => {
+    index++;
+  });
+}
+//sort employees by last name
+function sortByName() {
+  const sorted = employees.sort((a, b) =>
+    a.name.last.localeCompare(b.name.last)
+  );
+  displayEmployees(sorted);
 }
 
 /*******************************
@@ -81,7 +109,7 @@ gridContainer.addEventListener("click", (e) => {
   if (e.target !== gridContainer) {
     // select the card element based on its proximity to actual element clicked;
     const card = e.target.closest(".card");
-    const index = card.getAttribute("data-index");
+    const index = parseInt(card.getAttribute("data-index"));
     displayModal(index);
   }
 });
@@ -89,3 +117,5 @@ gridContainer.addEventListener("click", (e) => {
 modalClose.addEventListener("click", () => {
   overlay.classList.add("hidden");
 });
+
+sort.addEventListener("click", sortByName);

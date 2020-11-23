@@ -60,14 +60,23 @@ body {
 /****************************************
 *****************Header******************
 ****************************************/
-h1 {
-  padding: 10px 15px;
-  text-align: center;
-  font-size: 1.2rem;
-  @media (min-width: 768px) {
-    text-align: left;
-    padding: 10px 30px;
-    font-size: 1.4rem;
+header {
+  h1 {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    @media (min-width: 768px) {
+      text-align: left;
+      padding: 10px 30px;
+      font-size: 1.4rem;
+    }
+  }
+  h2 {
+    padding: 0 30px;
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
   }
 }
 
@@ -82,6 +91,7 @@ h1 {
   padding: 10px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   img {
     margin: 10px 10px 10px 0;
   }
@@ -108,6 +118,7 @@ h1 {
   border: $border;
   border-radius: 5px;
   padding: 30px 20px;
+
   @media (min-width: 768px) {
     width: 375px;
   }
@@ -135,6 +146,18 @@ h1 {
         background-color: #dfdfdf;
         border-radius: 5px;
         width: 60%;
+      }
+    }
+    .fas {
+      position: absolute;
+      color: $secondary-color;
+      top: 48%;
+      cursor: pointer;
+      &.fa-angle-right {
+        right: 20px;
+      }
+      &.fa-angle-left {
+        left: 20px;
       }
     }
   }
