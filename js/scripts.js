@@ -78,20 +78,28 @@ function displayModal(index) {
   overlay.classList.remove("hidden");
   modalContainer.innerHTML = modalHTML;
 
-  // Hide or show arrow icon on first or last card
+  // add event listener to move back and forth between employee data
   const rightArrow = document.querySelector(".fa-angle-right");
   const leftArrow = document.querySelector(".fa-angle-left");
 
   if (index === 11) {
     rightArrow.style.display = "none";
+    leftArrow.addEventListener("click", () => {
+      displayModal(index - 1);
+    });
   } else if (index === 0) {
     leftArrow.style.display = "none";
+    rightArrow.addEventListener("click", () => {
+      displayModal(index + 1);
+    });
+  } else {
+    leftArrow.addEventListener("click", () => {
+      displayModal(index - 1);
+    });
+    rightArrow.addEventListener("click", () => {
+      displayModal(index + 1);
+    });
   }
-
-  //add event listener to move back and forth between employee data
-  rightArrow.addEventListener("click", () => {
-    index++;
-  });
 }
 //sort employees by last name
 function sortByName() {

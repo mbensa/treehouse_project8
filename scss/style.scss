@@ -74,6 +74,7 @@ header {
   h2 {
     padding: 0 30px;
     text-align: center;
+    cursor: pointer;
     @media (min-width: 768px) {
       text-align: left;
     }
