@@ -344,7 +344,7 @@ body {
         grid-gap: 30px;
         margin: 0 30px; } }
   body .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
